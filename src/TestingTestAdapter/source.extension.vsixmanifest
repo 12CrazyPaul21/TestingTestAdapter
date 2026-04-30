@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="TestingTestAdapter.09bf895f-f910-4ec0-9cfb-acdb089bbc5c" Version="0.1.0.0" Language="en-US" Publisher="Phantom27" />
+    <Identity Id="TestingTestAdapter.09bf895f-f910-4ec0-9cfb-acdb089bbc5c" Version="0.1.1.0" Language="en-US" Publisher="Phantom27" />
     <DisplayName>Testing Test Adapter</DisplayName>
     <Description xml:space="preserve">Test Adapter for running exe-based tests that follow a specific protocol.</Description>
     <Icon>Resources\icons\icon.png</Icon>
