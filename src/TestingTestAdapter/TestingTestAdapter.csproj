@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>17.0</MinimumVisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ProductVersion>0.1.0.0</ProductVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{6EF6FAFA-3DB1-4030-B5D8-3A665D0EFA16}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Phantom.Testing.TestAdapter</RootNamespace>
+    <AssemblyName>Phantom.Testing.TestAdapter</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <GeneratePkgDefFile>true</GeneratePkgDefFile>
+    <UseCodebase>true</UseCodebase>
+    <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
+    <IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
+    <IncludeDebugSymbolsInLocalVSIXDeployment>false</IncludeDebugSymbolsInLocalVSIXDeployment>
+    <CopyBuildOutputToOutputDirectory>true</CopyBuildOutputToOutputDirectory>
+    <CopyOutputSymbolsToOutputDirectory>true</CopyOutputSymbolsToOutputDirectory>
+    <StartAction>Program</StartAction>
+    <StartProgram Condition="'$(DevEnvDir)' != ''">$(DevEnvDir)devenv.exe</StartProgram>
+    <StartArguments>/rootsuffix Exp</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Debugging\DebuggerAttacherService.cs" />
+    <Compile Include="Debugging\DebuggerAttacherServiceConfiguration.cs" />
+    <Compile Include="Debugging\IDebuggerAttacher.cs" />
+    <Compile Include="Debugging\IDebuggerAttacherService.cs" />
+    <Compile Include="Debugging\MessageBasedDebuggerAttacher.cs" />
+    <Compile Include="Debugging\VsDebuggerAttacher.cs" />
+    <Compile Include="Dia2Lib\DiaFactory.cs" />
+    <Compile Include="Dia2Lib\DiaResolver.cs" />
+    <Compile Include="Discoverer\MesonTestDiscoverer.cs" />
+    <Compile Include="Discoverer\TestingTestCaseBuilder.cs" />
+    <Compile Include="ProcessExecution\DebugProcessLauncher.cs" />
+    <Compile Include="ProcessExecution\IProcess.cs" />
+    <Compile Include="Executor\ITestingExecutor.cs" />
+    <Compile Include="Discoverer\ITestingDiscoverer.cs" />
+    <Compile Include="ProcessExecution\IProcessLauncher.cs" />
+    <Compile Include="Executor\TestingDebugger.cs" />
+    <Compile Include="Executor\TestingRunner.cs" />
+    <Compile Include="ProcessExecution\TestProcessLauncher.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reporter\ITestingReporter.cs" />
+    <Compile Include="Reporter\TestingExternalReporter.cs" />
+    <Compile Include="Reporter\TestingReporter.cs" />
+    <Compile Include="Reporter\TestingReporterFactory.cs" />
+    <Compile Include="Settings\GlobalRunSettingsProvider.cs" />
+    <Compile Include="Settings\IGlobalRunSettings.cs" />
+    <Compile Include="Settings\IGlobalRunSettingsInternal.cs" />
+    <Compile Include="Settings\ITestingTestAdapterSettings.cs" />
+    <Compile Include="Settings\RunSettingsService.cs" />
+    <Compile Include="Settings\RunSettings.cs" />
+    <Compile Include="Settings\TestingRunSettings.cs" />
+    <Compile Include="Discoverer\TestingDiscovererFactory.cs" />
+    <Compile Include="Discoverer\TestingDiscoverer.cs" />
+    <Compile Include="Executor\TestingExecutor.cs" />
+    <Compile Include="TestingTestAdapter.cs" />
+    <Compile Include="TestingTestAdapterPackage.cs" />
+    <Compile Include="EXETestDiscoverer.cs" />
+    <Compile Include="EXETestExecutor.cs" />
+    <Compile Include="Discoverer\TestingExternalDiscoverer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Dia2Lib\dia2.tlb" />
+    <None Include="Dia2Lib\prepare.bat" />
+    <None Include="source.extension.vsixmanifest">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="dia2">
+      <HintPath>..\dia2\dia2.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestWindow.Interfaces, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(DevEnvDir)CommonExtensions\Microsoft\TestWindow\Microsoft.VisualStudio.TestWindow.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.TestPlatform">
+      <Version>18.4.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.TestPlatform.ObjectModel">
+      <Version>18.4.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.14.40265" ExcludeAssets="runtime" NoWarn="NU1604">
+      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.14.2142" NoWarn="NU1604">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dia2Lib\dia2.dll" />
+    <Content Include="Dia2Lib\x64\msdia140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Dia2Lib\x86\msdia140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Resources\icons\icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Resources\icons\license-241970683-6656225.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{9c209926-122f-4097-8984-1b0c51b001d9}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Watchdog.Host\Watchdog.Host.csproj">
+      <Project>{27370ab7-461c-407f-80e3-6b20348aa3e9}</Project>
+      <Name>Watchdog.Host</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Watchdog\Watchdog.csproj">
+      <Project>{54b51039-85ab-4bfb-9e8c-12d6af3265dc}</Project>
+      <Name>Watchdog</Name>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Target Name="IncludePackageReferenceDependencies" AfterTargets="GetVsixSourceItems">
+    <!-- <ItemGroup>
+      <VSIXSourceItem Include="@(ReferenceCopyLocalPaths)" />
+    </ItemGroup> -->
+    <!-- <ItemGroup>
+      <VSIXSourceItem Include="$(OutputPath)Microsoft.VisualStudio.Threading.dll" />
+    </ItemGroup> -->
+  </Target>
+  <Target Name="EnsureDia2Lib" BeforeTargets="PrepareForBuild" Condition="!Exists('$(ProjectDir)Dia2Lib\dia2.prepared')">
+    <Exec Command="call &quot;$(DevEnvDir)..\..\VC\Auxiliary\Build\vcvarsall.bat&quot; x86 &amp;&amp; cd /D &quot;$(ProjectDir)Dia2Lib&quot; &amp;&amp; prepare.bat" ContinueOnError="false" />
+  </Target>
+  <Target Name="GetVsixVersion">
+    <XmlPeek XmlInputPath="source.extension.vsixmanifest" Query="/*[local-name()='PackageManifest']/*[local-name()='Metadata']/*[local-name()='Identity']/@Version">
+      <Output TaskParameter="Result" PropertyName="VsixVersion" />
+    </XmlPeek>
+  </Target>
+  <PropertyGroup>
+    <GeneratedAssemblyInfoFile>$(IntermediateOutputPath)GeneratedAssemblyInfo.cs</GeneratedAssemblyInfoFile>
+  </PropertyGroup>
+  <Import Project="..\..\build\InjectVersionAttribute.targets" />
+</Project>

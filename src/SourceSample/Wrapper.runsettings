@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+    <TestingTestAdapterSettings>
+        <Discoverer>
+            <UseWrapper>false</UseWrapper>
+            <!-- <Wrapper>.\Wrapper\discover.py</Wrapper> -->
+            <!-- <Wrapper>.\Wrapper\discover.bat</Wrapper> -->
+            <!-- <Wrapper>.\Wrapper\discover.exe</Wrapper> -->
+        </Discoverer>
+        <WatchdogDisabled>false</WatchdogDisabled>
+        <PathExtension>c:\bingoDir;c:\fooDir;c:\barDir</PathExtension>
+        <EnvironmentVariables>
+            <Variable Name="MyVar1" Value="MyValue1" />
+            <Variable Name="MyVar2" Value="MyValue2" />
+            <Variable Name="PATH" Value="c:\myPathDir" />
+        </EnvironmentVariables>
+        <!-- <DebuggingNamedPipeId></DebuggingNamedPipeId> -->
+    </TestingTestAdapterSettings>
+</RunSettings>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+    <TestingTestAdapterSettings>
+        <Discoverer>
+            <UseWrapper>true</UseWrapper>
+            <Wrapper>.\Wrapper\discover.py</Wrapper>
+        </Discoverer>
+        <Reporter>
+            <UseWrapper>true</UseWrapper>
+            <Wrapper>.\Wrapper\reporter.py</Wrapper>
+        </Reporter>
+        <WatchdogDisabled>false</WatchdogDisabled>
+        <PathExtension>c:\bingoDir;c:\fooDir;c:\barDir</PathExtension>
+        <EnvironmentVariables>
+            <Variable Name="MyVar1" Value="MyValue1" />
+            <Variable Name="MyVar2" Value="MyValue2" />
+            <Variable Name="PATH" Value="c:\myPathDir" />
+        </EnvironmentVariables>
+        <!-- <DebuggingNamedPipeId></DebuggingNamedPipeId> -->
+    </TestingTestAdapterSettings>
+</RunSettings>

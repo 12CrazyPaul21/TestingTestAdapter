@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <VsixManifest>$(MSBuildThisFileDirectory)..\src\TestingTestAdapter\source.extension.vsixmanifest</VsixManifest>
+    <VsixVersionQuery>/*[local-name()='PackageManifest']/*[local-name()='Metadata']/*[local-name()='Identity']/@Version</VsixVersionQuery>
+    <ProductVersionQuery>/*[local-name()='Project']/*[local-name()='PropertyGroup']/*[local-name()='ProductVersion']</ProductVersionQuery>
+  </PropertyGroup>
+
+  <Target Name="BumpVsixVersion">
+    <Error Condition="'$(VsixVersion)'==''" Text="VsixVersion is not defined" />
+    <XmlPoke XmlInputPath="$(VsixManifest)" Query="$(VsixVersionQuery)" Value="$(VsixVersion)" />
+  </Target>
+
+  <Target Name="BumpProductVersion">
+    <Error Condition="'$(ProjectPath)'==''" Text="ProjectPath is not defined" />
+    <Error Condition="'$(ProjectVersion)'==''" Text="ProjectVersion is not defined" />
+    <XmlPoke XmlInputPath="$(ProjectPath)" Query="$(ProductVersionQuery)" Value="$(ProjectVersion)" />
+  </Target>
+</Project>

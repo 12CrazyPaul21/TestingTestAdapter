@@ -1,0 +1,22 @@
+image: Visual Studio 2022
+version: '0.1.0.{build}'
+skip_non_tags: true
+branches:
+  only:
+    - main
+    - /v\d+\.\d+\.\d+/
+before_build:
+  - cmd: bump.bat vsix %APPVEYOR_BUILD_VERSION%
+build_script:
+  - cmd: build.bat
+artifacts:
+  - path: artifacts\TestingTestAdapter-%APPVEYOR_BUILD_VERSION%.vsix
+    name: VSIX installation package
+deploy:
+  - provider: GitHub
+    auth_token: $(TESTING_TEST_ADAPTER_TOKEN)
+    artifact: VSIX installation package
+    draft: true
+    prerelease: true
+    on:
+      appveyor_repo_tag: true

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+    <TestingTestAdapterSettings>
+        <WatchdogDisabled>false</WatchdogDisabled>
+        <PathExtension>c:\bingoDir;c:\fooDir;c:\barDir</PathExtension>
+        <EnvironmentVariables>
+            <Variable Name="MyVar1" Value="MyValue1" />
+            <Variable Name="MyVar2" Value="MyValue2" />
+            <Variable Name="PATH" Value="c:\myPathDir" />
+        </EnvironmentVariables>
+        <!-- <DebuggingNamedPipeId></DebuggingNamedPipeId> -->
+    </TestingTestAdapterSettings>
+</RunSettings>
